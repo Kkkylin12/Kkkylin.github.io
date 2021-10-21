@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  <icon>https://kkkylin12.github.io/icon.png</icon>
+  
+  <link href="https://kkkylin12.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://kkkylin12.github.io/"/>
+  <updated>2021-08-01T15:53:31.470Z</updated>
+  <id>https://kkkylin12.github.io/</id>
+  
+  <author>
+    <name>Kkkylin12</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://kkkylin12.github.io/2021/08/01/XSS1/"/>
+    <id>https://kkkylin12.github.io/2021/08/01/XSS1/</id>
+    <published>2021-08-01T15:53:54.187Z</published>
+    <updated>2021-08-01T15:53:31.470Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;XSS&quot;&gt;&lt;a href=&quot;#XSS&quot; class=&quot;headerlink&quot; title=&quot;XSS&quot;&gt;&lt;/a&gt;XSS&lt;/h1&gt;&lt;p&gt;xss即Cross-site scripting(跨站脚本)，是一种客户端代码注入，通常注入代码时JavaScript，区别于命令注</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://kkkylin12.github.io/2021/08/01/SQL%E7%9B%B2%E6%B3%A8/"/>
+    <id>https://kkkylin12.github.io/2021/08/01/SQL%E7%9B%B2%E6%B3%A8/</id>
+    <published>2021-07-31T16:39:54.858Z</published>
+    <updated>2021-07-31T16:39:21.045Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;SQL盲注&quot;&gt;&lt;a href=&quot;#SQL盲注&quot; class=&quot;headerlink&quot; title=&quot;SQL盲注&quot;&gt;&lt;/a&gt;SQL盲注&lt;/h1&gt;&lt;p&gt;SQL盲注即数据库的执行结果不h会直接显示到页面上，页面指挥显示真和假两种状态。&lt;/p&gt;
+&lt;h2 id=&quot;布尔型&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://kkkylin12.github.io/2021/07/25/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/"/>
+    <id>https://kkkylin12.github.io/2021/07/25/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/</id>
+    <published>2021-07-25T15:28:23.024Z</published>
+    <updated>2021-07-25T15:27:35.437Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;联合注入&quot;&gt;&lt;a href=&quot;#联合注入&quot; class=&quot;headerlink&quot; title=&quot;联合注入&quot;&gt;&lt;/a&gt;联合注入&lt;/h1&gt;&lt;p&gt;联合注入使用union select联合查询，是回显注入的一种，即联合注入的前提是，页面上要有会回显。所谓回显，就是在一个正</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://kkkylin12.github.io/2021/07/21/SQL%E6%B3%A8%E5%85%A5/"/>
+    <id>https://kkkylin12.github.io/2021/07/21/SQL%E6%B3%A8%E5%85%A5/</id>
+    <published>2021-07-21T05:55:32.549Z</published>
+    <updated>2021-07-20T15:16:00.105Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;SQL注入&quot;&gt;&lt;a href=&quot;#SQL注入&quot; class=&quot;headerlink&quot; title=&quot;SQL注入&quot;&gt;&lt;/a&gt;SQL注入&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://kkkylin12.github.io/2021/07/21/hello-world/"/>
+    <id>https://kkkylin12.github.io/2021/07/21/hello-world/</id>
+    <published>2021-07-21T05:09:06.192Z</published>
+    <updated>2021-07-21T05:17:50.871Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
